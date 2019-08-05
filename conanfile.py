@@ -170,9 +170,13 @@ cxx_14=False
                 ("enable_json", "PocoJSON"),
                 ("enable_redis", "PocoRedis")]
 
-        suffix = str(self.settings.compiler.runtime).lower()  \
-                 if self.settings.compiler == "Visual Studio" and not self.options.shared \
-                 else ("d" if self.settings.build_type=="Debug" else "")
+        # suffix = str(self.settings.compiler.runtime).lower() if self.settings.compiler == "Visual Studio" and not self.options.shared else ("d" if self.settings.build_type=="Debug" else "")
+        suffix = str(self.settings.compiler.runtime).lower() 
+        if self.settings.compiler == "Visual Studio" and self.settings.build_type=="Debug":
+            suffix = suffix+"d"
+        else: 
+            suffix = suffix+""
+
         for flag, lib in libs:
             if getattr(self.options, flag):
                 if self.settings.os != "Windows" and flag == "enable_netssl_win":
