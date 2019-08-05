@@ -8,6 +8,7 @@ class DefaultNameConan(ConanFile):
     version = "0.1"
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
+    default_options = {"Poco:shared": False}
 
     def build(self):
         cmake = CMake(self)
