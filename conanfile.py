@@ -129,7 +129,7 @@ cxx_14=False
         # Copy the license files
         self.copy("poco/LICENSE", dst=".", keep_path=False)
         # Typically includes we want to keep_path=True (default)
-        packages = ["CppUnit", "Crypto", "Data", "Data/MySQL", "Data/ODBC", "Data/SQLite",
+        packages = ["Crypto", "Data", "Data/MySQL", "Data/ODBC", "Data/SQLite",
                     "Foundation", "JSON", "MongoDB", "Net", "Redis", "Util",
                     "XML", "Zip"]
         if self.settings.os == "Windows" and self.options.enable_netssl_win:
